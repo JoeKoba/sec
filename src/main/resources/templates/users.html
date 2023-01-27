@@ -11,23 +11,22 @@
 <br>
 <br>
 <table border="1">
-    <tr th:each="users : ${users}">
+    <tr th:each="users : ${user}">
 
-        <td><a th:href="@{'/' + ${users.userId}}" th:utext="${users.userId}">UserId</a></td>
-        <td th:utext="${users.name}">Name</td>
-        <td th:utext="${users.surname}">Surname</td>
-        <td th:utext="${users.age}">Age</td>
+<!--        <td><a th:href="@{'/' + ${users.id}}" th:utext="${user.id}">UserId</a></td>-->
+        <td th:utext="${users.firstName}">Name</td>
+        <td th:utext="${users.lastName}">Surname</td>
         <td th:utext="${users.email}">Email</td>
-        <td>
-            <form th:action="@{'edit/' + ${users.userId}}">
-                <input type="submit" class="buttonEdit" value="Edit"/>
-            </form>
-        </td>
-        <td>
-            <form th:method="DELETE" th:action="@{'delete/' + ${users.userId}}">
-                <input type="submit" class="buttonDelete" value="Delete"/>
-            </form>
-        </td>
+<!--        <td>-->
+<!--            <form th:action="@{'edit/' + ${users.userId}}">-->
+<!--                <input type="submit" class="buttonEdit" value="Edit"/>-->
+<!--            </form>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <form th:method="DELETE" th:action="@{'delete/' + ${users.userId}}">-->
+<!--                <input type="submit" class="buttonDelete" value="Delete"/>-->
+<!--            </form>-->
+<!--        </td>-->
     </tr>
 </table>
 </body>

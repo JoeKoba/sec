@@ -20,9 +20,9 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
 
         if (roles.contains("ROLE_ADMIN")) {
-            setDefaultTargetUrl("/auth/admin");
+            setDefaultTargetUrl("/admin");
         } else if(roles.contains("ROLE_USER")) {
-            setDefaultTargetUrl("/auth/user");
+            setDefaultTargetUrl("/user");
         } else {
             setDefaultTargetUrl("/");
         }

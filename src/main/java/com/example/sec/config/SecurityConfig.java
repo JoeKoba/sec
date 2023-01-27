@@ -39,11 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/admin/**").hasRole("ADMIN")
-                .antMatchers("/auth/login", "/error", "/auth/registration", "/auth/index").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/").permitAll()
                 .anyRequest().hasAnyRole("ADMIN", "USER")
                 .and()
-                .formLogin().loginPage("/auth/login")
+                .formLogin().loginPage("/")
                 .loginProcessingUrl("/process_login")
                 .successHandler(successHandler)
                 .failureUrl("/auth/login?error");
