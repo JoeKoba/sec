@@ -26,11 +26,6 @@ public class AdminController {
         return "login";
     }
 
-    @GetMapping("/users")
-    public String userList(Model model, User user) {
-        model.addAttribute("user", userRepository.findAll());
-        return "users";
-    }
 
     @GetMapping("/admin")
     public String adminPage() {
