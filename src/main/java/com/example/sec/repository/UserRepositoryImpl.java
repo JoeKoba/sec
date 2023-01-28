@@ -48,6 +48,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public void addUser(User user) {
+        entityManager.persist(user);
+    }
+
+
+    @Override
     public void delete(User entity) {
         entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
     }

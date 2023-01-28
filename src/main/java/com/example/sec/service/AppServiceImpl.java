@@ -41,6 +41,11 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
+    public void addUser(User user) {
+        userRepository.addUser(user);
+    }
+
+    @Override
     public User findUser(Long userId) {
         return userRepository.find(userId)
                 .orElseThrow(() -> new EmptyResultDataAccessException(String.format("User with ID = %d not found", userId), 1));

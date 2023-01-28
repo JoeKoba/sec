@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository {
+
     List<User> findAll();
 
     Optional<User> find(Long id);
@@ -17,4 +18,6 @@ public interface UserRepository {
     void save(User entity);
 
     void delete(User entity);
+
+    void addUser(User user);
 }

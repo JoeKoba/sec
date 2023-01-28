@@ -27,10 +27,8 @@ public class User extends AbstractEntity implements UserDetails {
     @Email(message = "Email should be valid")
     private String email;
 
-    @NotEmpty(message = "Password should not be empty")
     private String password;
 
-    private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles")
@@ -119,11 +117,7 @@ public class User extends AbstractEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        return true;
     }
 
     public Set<Role> getRoles() {
@@ -134,9 +128,5 @@ public class User extends AbstractEntity implements UserDetails {
         this.roles = roles;
     }
 
-    @Override
-    public String toString() {
-        return String.format("User [id = %d; firstName = %s; lastName = %s; email = %s; password = %s; enabled = %s; roles = (%s)]",
-                id, firstName, lastName, email, password, isEnabled(), Collections.singletonList(roles));
-    }
+
 }

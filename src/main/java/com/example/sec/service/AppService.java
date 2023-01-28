@@ -19,6 +19,8 @@ public interface AppService extends UserDetailsService {
 
     List<Role> findAllRoles();
 
+    void addUser(User user);
+
     void tryIndex(Model model, HttpSession session, LoginException authenticationException, String authenticationName);
 
     boolean saveUser(User user, BindingResult bindingResult, Model model);
