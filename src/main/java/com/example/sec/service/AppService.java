@@ -24,4 +24,6 @@ public interface AppService extends UserDetailsService {
     void tryIndex(Model model, HttpSession session, LoginException authenticationException, String authenticationName);
 
     boolean saveUser(User user, BindingResult bindingResult, Model model);
+
+    void updateUser(User user);
 }

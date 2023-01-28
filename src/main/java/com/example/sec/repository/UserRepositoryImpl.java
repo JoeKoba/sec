@@ -2,8 +2,6 @@ package com.example.sec.repository;
 
 import com.example.sec.model.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,6 +34,11 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public Optional<User> find(Long id) {
         return Optional.ofNullable(entityManager.find(User.class, id));
+    }
+
+    @Override
+    public void updateUser(User user) {
+        entityManager.merge(user);
     }
 
     @Override

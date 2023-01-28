@@ -15,6 +15,8 @@ public interface UserRepository {
 
     User find(String email);
 
+    void updateUser(User user);
+
     void save(User entity);
 
     void delete(User entity);

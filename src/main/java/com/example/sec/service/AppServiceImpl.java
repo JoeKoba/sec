@@ -52,6 +52,11 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
+    public void updateUser(User user) {
+        userRepository.updateUser(user);
+    }
+
+    @Override
     public User loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.find(email);
         if (null == user) {
