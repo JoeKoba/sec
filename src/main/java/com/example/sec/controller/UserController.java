@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping("/users")
     public String userList(Model model, User user) {
-        model.addAttribute("user", userRepository.findAll());
+        model.addAttribute("user", appService.findAllUsers());
         return "users";
     }
     @GetMapping("/")

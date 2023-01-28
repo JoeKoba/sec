@@ -43,11 +43,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void save(User entity) {
-        if (!entity.persisted()) {
-            entityManager.persist(entity);
-        } else {
-            entityManager.merge(entity);
-        }
+        entityManager.merge(entity);
     }
 
     @Override

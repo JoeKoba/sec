@@ -12,8 +12,10 @@ import java.util.*;
 
 @Entity
 @Table(name = "users", indexes = {@Index(columnList = "name, last_name ASC")})
-public class User extends AbstractEntity implements UserDetails {
-
+public class User implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "name")
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 to 30")
@@ -74,8 +76,16 @@ public class User extends AbstractEntity implements UserDetails {
         this.password = password;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public boolean hasRole(int roleId) {
-        if (null == roles|| 0 == roles.size()) {
+        if (null == roles || 0 == roles.size()) {
             return false;
         }
         Optional<Role> findRole = roles.stream().filter(role -> roleId == role.getId()).findFirst();
@@ -83,7 +93,7 @@ public class User extends AbstractEntity implements UserDetails {
     }
 
     public boolean hasRole(String roleName) {
-        if (null == roles|| 0 == roles.size()) {
+        if (null == roles || 0 == roles.size()) {
             return false;
         }
         Optional<Role> findRole = roles.stream().filter(role -> roleName.equals(role.getName())).findFirst();
